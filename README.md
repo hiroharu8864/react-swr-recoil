@@ -1,4 +1,3 @@
 ### はじめに
 
-- SWR(GraphQL Client) -> Recoil
-- 上記動作ロジック確認
+- Recoil は META が開発しているステート管理用ライブラリ

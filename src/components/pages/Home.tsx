@@ -8,7 +8,7 @@ export const Home: FC = memo(() => {
   }, [navigate]);
   return (
     <>
-      <p>SWR FetchCheck</p>
+      <p>Recoil-Relay FetchCheck</p>
       <button onClick={onClickFetchCheck}>GraphQL API Response Check</button>
     </>
   );
