@@ -2,7 +2,6 @@ import { GraphQLClient } from "graphql-request";
 import useSWR from "swr";
 
 import { GitHubRepos } from "../type/GitHubRepos";
-import { GitHubRepository } from "../type/GitHubRepository";
 
 const getLoginUserReposQuery = `
 query loginUserRepository($loginUser: String!, $firstFetchNums: Int!) {
@@ -22,7 +21,7 @@ const loginUser = "hiroharu8864";
 const firstFetchNums = 100;
 
 export const GetLoginUserRepos = () => {
-  const access_token = "access_token";
+  const access_token = "ghp_token";
   const client = new GraphQLClient("https://api.github.com/graphql", {
     headers: {
       Authorization: `bearer ${access_token}`,

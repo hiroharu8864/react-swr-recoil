@@ -19,15 +19,6 @@ const ResultComponent = () => {
           </ul>
         ))}
       </div>
-      {/* <div>
-        {data?.repositoryOwner.repositories.edges.repositoryEdge.map((repos) => (
-          <ul key={repos.repository.name}>
-            <li>test</li>
-            <li>{repos.repository.name}</li>
-            <li>{repos.repository.createdAt}</li>
-          </ul>
-        ))}
-      </div> */}
     </>
   );
 };
