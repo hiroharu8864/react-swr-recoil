@@ -15,13 +15,10 @@ type RepositoryOwner = {
   repositories: RepositoryConnection;
 };
 type RepositoryConnection = {
-  edges: RepositoryEdge;
+  edges: Array<NumObject>;
 };
-type RepositoryEdge = {
-  repositoryEdge: Array<Repository>;
-};
-type Repository = {
-  repository: Node;
+type NumObject = {
+  node: Node;
 };
 type Node = {
   createdAt: string;

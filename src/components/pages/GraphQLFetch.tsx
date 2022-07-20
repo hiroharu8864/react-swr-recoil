@@ -1,3 +1,4 @@
+import { rawRequest } from "graphql-request";
 import { FC, memo, Suspense, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -5,17 +6,16 @@ import { GetLoginUserRepos } from "../../hooks/GetLoginUserRepos";
 
 const ResultComponent = () => {
   const { data, error } = GetLoginUserRepos();
-  console.log(data);
+  console.log(data?.repositoryOwner.repositories.edges);
 
   return (
     <>
       <h2>Fetch Login Users Data is below</h2>
       <div>
         {data?.repositoryOwner.repositories.edges.map((repos) => (
-          <ul key={repos.createdAt}>
-            <li>test</li>
-            <li>{repos.name}</li>
-            <li>{repos.createdAt}</li>
+          <ul key={repos.node.name}>
+            <li>{repos.node.name}</li>
+            <li>{repos.node.createdAt}</li>
           </ul>
         ))}
       </div>

@@ -22,7 +22,7 @@ const loginUser = "hiroharu8864";
 const firstFetchNums = 100;
 
 export const GetLoginUserRepos = () => {
-  const access_token = "ghp_token";
+  const access_token = "access_token";
   const client = new GraphQLClient("https://api.github.com/graphql", {
     headers: {
       Authorization: `bearer ${access_token}`,
