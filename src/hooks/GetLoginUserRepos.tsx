@@ -2,6 +2,7 @@ import { GraphQLClient } from "graphql-request";
 import useSWR from "swr";
 
 import { GitHubRepos } from "../type/GitHubRepos";
+import { GitHubRepository } from "../type/GitHubRepository";
 
 const getLoginUserReposQuery = `
 query loginUserRepository($loginUser: String!, $firstFetchNums: Int!) {

@@ -8,21 +8,20 @@
  *   createAt: String
  *   name: String
  */
-
 export type GitHubRepos = {
   repositoryOwner: RepositoryOwner;
 };
 type RepositoryOwner = {
-  repositories: Repositories;
+  repositories: RepositoryConnection;
 };
-type Repositories = {
-  edges: Edges;
+type RepositoryConnection = {
+  edges: RepositoryEdge;
 };
-type Edges = {
-  nodes: Array<Edge>;
+type RepositoryEdge = {
+  repositoryEdge: Array<Repository>;
 };
-type Edge = {
-  node: Node;
+type Repository = {
+  repository: Node;
 };
 type Node = {
   createdAt: string;

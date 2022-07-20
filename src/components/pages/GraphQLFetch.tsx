@@ -11,10 +11,23 @@ const ResultComponent = () => {
     <>
       <h2>Fetch Login Users Data is below</h2>
       <div>
-        {data?.repositoryOwner.repositories.edges.edge.nodes.map((repos) => (
-          <p key={repos.name}>{repos.name}</p>
+        {data?.repositoryOwner.repositories.edges.map((repos) => (
+          <ul key={repos.createdAt}>
+            <li>test</li>
+            <li>{repos.name}</li>
+            <li>{repos.createdAt}</li>
+          </ul>
         ))}
       </div>
+      {/* <div>
+        {data?.repositoryOwner.repositories.edges.repositoryEdge.map((repos) => (
+          <ul key={repos.repository.name}>
+            <li>test</li>
+            <li>{repos.repository.name}</li>
+            <li>{repos.repository.createdAt}</li>
+          </ul>
+        ))}
+      </div> */}
     </>
   );
 };
