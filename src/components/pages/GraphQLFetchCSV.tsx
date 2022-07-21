@@ -4,27 +4,34 @@ import { CSVLink } from "react-csv";
 import moment from "moment";
 
 import { GetLoginUserRepos } from "../../hooks/GetLoginUserRepos";
+import { GetCsvData } from "../../hooks/GetCsvData";
 
 const ResultComponent = () => {
   const { data, error } = GetLoginUserRepos();
   const dataRepos = data?.repositoryOwner.repositories.edges;
-  // console.log(dataRepos);
+  console.log(dataRepos);
   /** 空白２文字で整形して出力 */
   const dataReposJson = JSON.stringify(dataRepos, null, 2);
   console.log(dataReposJson);
 
   const parseData = JSON.parse(dataReposJson);
+  console.log(parseData.length);
   console.log(parseData[0].node.name);
   console.log(parseData[0].node.createdAt);
 
   const now = moment().format("YYYYMMDD_HHmmss");
   // console.log(now);
 
+  const csvdata = parseData.map((repos) => ({
+    repositoryname: `${repos.node.name}`,
+    repositorycreatedate: `${repos.node.createdAt}`
+  }));
+
   const headers = [
     { label: "Repository Name", key: "repositoryname" },
     { label: "Repository Create Date", key: "repositorycreatedate" }
   ];
-  const csvdata = [
+  const testdata = [
     {
       repositoryname: `${parseData[0].node.name}`,
       repositorycreatedate: `${parseData[0].node.createdAt}`
