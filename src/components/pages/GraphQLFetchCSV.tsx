@@ -7,7 +7,15 @@ import { GetLoginUserRepos } from "../../hooks/GetLoginUserRepos";
 
 const ResultComponent = () => {
   const { data, error } = GetLoginUserRepos();
-  // console.log(data?.repositoryOwner.repositories.edges);
+  const dataRepos = data?.repositoryOwner.repositories.edges;
+  // console.log(dataRepos);
+  /** 空白２文字で整形して出力 */
+  const dataReposJson = JSON.stringify(dataRepos, null, 2);
+  console.log(dataReposJson);
+
+  const parseData = JSON.parse(dataReposJson);
+  console.log(parseData[0].node.name);
+  console.log(parseData[0].node.createdAt);
 
   const now = moment().format("YYYYMMDD_HHmmss");
   // console.log(now);
@@ -17,8 +25,18 @@ const ResultComponent = () => {
     { label: "Repository Create Date", key: "repositorycreatedate" }
   ];
   const csvdata = [
-    { repositoryname: "test", repositorycreatedate: "2022-07-20" },
-    { repositoryname: "test2", repositorycreatedate: "2022-07-21" }
+    {
+      repositoryname: `${parseData[0].node.name}`,
+      repositorycreatedate: `${parseData[0].node.createdAt}`
+    },
+    {
+      repositoryname: `${parseData[1].node.name}`,
+      repositorycreatedate: `${parseData[1].node.createdAt}`
+    },
+    {
+      repositoryname: `${parseData[2].node.name}`,
+      repositorycreatedate: `${parseData[2].node.createdAt}`
+    }
   ];
 
   return (

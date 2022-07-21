@@ -6,7 +6,7 @@ import { GitHubRepos } from "../type/GitHubRepos";
 const getLoginUserReposQuery = `
 query loginUserRepository($loginUser: String!, $firstFetchNums: Int!) {
   repositoryOwner(login: $loginUser) {
-    repositories(privacy: PRIVATE, first: $firstFetchNums) {
+    repositories(privacy: PUBLIC, first: $firstFetchNums) {
       edges{
         node {
           createdAt
